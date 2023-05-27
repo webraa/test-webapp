@@ -19,8 +19,10 @@ savetogit:
 release:
 	@cargo rustc --release -- -C prefer-dynamic
 
-web-release:
+cargo-web-release:
 	@cargo build --release --target wasm32-unknown-unknown
+trunk-release:
+	@trunk build --release
 
 test:
 	@cargo test
