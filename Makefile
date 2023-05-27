@@ -4,12 +4,8 @@ binname="wwwapp"
 help:
 	@echo 'there is no help.. yet'
 
-run: release size
-	@cargo run --release
-
 edit:
 	@nvim ./src/root_app.rs
-
 edit_main:
 	@nvim ./src/main.rs
 
@@ -18,11 +14,15 @@ savetogit:
 
 release:
 	@cargo rustc --release -- -C prefer-dynamic
+run: release size
+	@cargo run --release
 
-cargo-web-release:
-	@cargo build --release --target wasm32-unknown-unknown
 trunk-release:
 	@trunk build --release
+
+
+all: release trunk-release savetogit
+
 
 test:
 	@cargo test
