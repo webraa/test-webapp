@@ -1,5 +1,3 @@
-### based on [emilk/eframe_template](https://github.com/emilk/eframe_template)
----
 # wwwapp-template
 CroossWebPlatformAssembly
 
@@ -11,3 +9,8 @@ CroossWebPlatformAssembly
 ## ./asset/
 1. **sw.js** & **manifest.jsom** => consist cach name
 2. **sw.js** => set actual names for **\<app>.js** and **\<app>_bg.wasm** to **Cargo.toml:name**
+
+
+
+---
+> ### based on [emilk/eframe_template](https://github.com/emilk/eframe_template)
