@@ -1,4 +1,4 @@
-binname="wwwapp"
+binname="wwwapp_template"
 
 
 help:
