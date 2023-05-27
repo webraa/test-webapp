@@ -17,6 +17,7 @@ impl eframe::App for RootApp {
             if btn.clicked(){
                 println!("clicked with PRESSURE!!!");
             }
+            ui.label("WASM is goooood!!11..");
         });
     }
 }
