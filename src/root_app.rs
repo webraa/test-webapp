@@ -32,7 +32,7 @@ impl RootApp {
 impl eframe::App for RootApp {
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         egui::CentralPanel::default().show( ctx, |ui| {
-            ui.label("WWWapp Template v1.05");
+            ui.label("WWWapp Template v1.06");
             ui.horizontal( |ui| {
                 let btn = ui.button( "uder pressure" );
                 ui.label( format!("->{}", self.pressed) );
