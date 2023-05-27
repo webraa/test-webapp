@@ -1,7 +1,5 @@
 #![allow(non_snake_case)]
 
-use eframe::egui;
-
 mod root_app;
 use crate::root_app::*;
 
@@ -25,7 +23,7 @@ fn main() -> Result<(), eframe::Error> {
 
 #[ cfg(target_arch = "wasm32") ]
 fn main() {
-    println!("WAAAAAAAASMMMMM..");
+    println!("in WASM doen't work..");
 
     console_error_panic_hook::set_once();
 
