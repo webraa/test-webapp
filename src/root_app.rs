@@ -39,13 +39,12 @@ impl eframe::App for RootApp {
 
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         egui::CentralPanel::default().show( ctx, |ui| {
-            ui.label("WWWapp Template v1.06");
+            ui.label("WWWapp Template v1.07");
             ui.horizontal( |ui| {
-                let btn = ui.button( "uder pressure" );
-                ui.label( format!("->{}", self.pressed) );
+                let btn = ui.button( "try to save TEXT" );
+                ui.label( format!(" <{}>", self.pressed) );
                 if btn.clicked(){
                     println!("clicked with PRESSURE!!!");
-                    self.txt = "button has been pressed".to_owned();
                     self.pressed = true;
             }
             });
