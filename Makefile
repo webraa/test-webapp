@@ -1,4 +1,4 @@
-binname="raawasm"
+binname="wwwapp"
 
 
 help:
