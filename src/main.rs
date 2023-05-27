@@ -8,7 +8,7 @@ use crate::root_app::*;
 
 #[ cfg(not(target_arch = "wasm32")) ]
 fn main() -> Result<(), eframe::Error> {
-    println!("\nStarted..");
+    println!("MAIN has beed entered..");
 
     let options = eframe::NativeOptions {
         initial_window_size: Some(egui::vec2(200., 300.)),
@@ -25,6 +25,8 @@ fn main() -> Result<(), eframe::Error> {
 
 #[ cfg(target_arch = "wasm32") ]
 fn main() {
+    println!("WAAAAAAAASMMMMM..");
+
     console_error_panic_hook::set_once();
 
     tracing_wasm::set_as_global_default();
@@ -41,4 +43,5 @@ fn main() {
         .expect("failure with starting EFRAME");
     });
 }
+
 

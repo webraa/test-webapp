@@ -1,23 +1,26 @@
 
 pub struct RootApp {
     //
+    txt: String,
 }
 
 impl Default for RootApp {
     fn default() -> Self {
-        Self {}
+        Self {txt:"<empty>".to_owned(),}
     }
 }
 
 impl eframe::App for RootApp {
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         egui::CentralPanel::default().show( ctx, |ui| {
-            ui.label("the road to WASM testing");
+            ui.label("WWWapp Template");
             let btn = ui.button( "uder pressure" );
             if btn.clicked(){
                 println!("clicked with PRESSURE!!!");
+                self.txt = "button has been pressed".to_owned();
             }
-            ui.label("WASM is goooood!!11..");
+            ui.text_edit_singleline(&mut self.txt);
+            ui.label( format!("just edited: [{}]", self.txt) );
         });
     }
 }
