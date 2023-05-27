@@ -30,6 +30,10 @@ impl RootApp {
 
 
 impl eframe::App for RootApp {
+    fn save(&mut self, storage: &mut dyn eframe::Storage) {
+        eframe::set_value(storage, eframe::APP_KEY, self);
+    }
+
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         egui::CentralPanel::default().show( ctx, |ui| {
             ui.label("WWWapp Template v1.06");
