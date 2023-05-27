@@ -13,7 +13,7 @@ impl Default for RootApp {
 impl eframe::App for RootApp {
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         egui::CentralPanel::default().show( ctx, |ui| {
-            ui.label("WWWapp Template v0.25");
+            ui.label("WWWapp Template v1.00");
             let btn = ui.button( "uder pressure" );
             if btn.clicked(){
                 println!("clicked with PRESSURE!!!");
