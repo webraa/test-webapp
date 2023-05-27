@@ -1318,7 +1318,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('raawasm_bg.wasm', import.meta.url);
+        input = new URL('wwwapp_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
