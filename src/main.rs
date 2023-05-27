@@ -16,7 +16,7 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native(
         "some text 1",
         options,
-        Box::new( |cc| Box::new((RootApp::new(cc)) )
+        Box::new( |cc| Box::new(RootApp::new(cc)) )
    )
 }
 
@@ -35,7 +35,7 @@ fn main() {
         eframe::start_web(
             "raa_canvas_id",
             options,
-            Box::new( |cc| Box::new((RootApp::new(cc)) ),
+            Box::new( |cc| Box::new(RootApp::new(cc)) ),
         )
         .await
         .expect("failure with starting EFRAME");
