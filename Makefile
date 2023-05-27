@@ -20,6 +20,9 @@ run: release size
 trunk-release:
 	@trunk build --release
 
+serve:
+	@trunk serve
+
 
 all: release trunk-release savetogit
 
