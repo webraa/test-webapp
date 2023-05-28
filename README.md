@@ -1,5 +1,5 @@
 # egui wwwapp-template
-CroossWebPlatformAssembly
+CrossWebPlatformAssembly
 
 # ToDo
 ## Cargo.toml
