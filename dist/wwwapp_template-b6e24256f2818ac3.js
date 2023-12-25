@@ -1318,7 +1318,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('wwwapp_template_bg.wasm', import.meta.url);
+        input = new URL('wwwapp_template-b6e24256f2818ac3_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
