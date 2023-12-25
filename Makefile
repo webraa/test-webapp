@@ -11,8 +11,8 @@ edit_main:
 gh.pages:
 	@git subtree push --prefix dist origin gh-pages
 
-all: release trunk-release savetogit
-trunk-release:
+all: release trunk.release savetogit
+trunk.release:
 	@trunk build --release
 serve:
 	@trunk serve
@@ -43,3 +43,4 @@ git.addall:
 
 clean:
 	@cargo clean
+	@trunk clean
