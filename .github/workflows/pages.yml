@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@v4
-    - name: pause
-      run : for ((i = 0 ; i < 55 ; i++ )); do echo "$i" && sleep 1; done
+      uses: actions/checkout@v2
+    #- name: pause
+    #  run : for ((i = 0 ; i < 55 ; i++ )); do echo "$i" && sleep 1; done
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
