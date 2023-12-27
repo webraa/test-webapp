@@ -1,4 +1,4 @@
-# egui wwwapp-template
+# egui webapp-template
 CrossWebPlatformAssembly
 
 # ToDo
