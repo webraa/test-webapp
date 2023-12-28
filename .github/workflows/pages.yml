@@ -1,4 +1,5 @@
-name: to-pages
+# in release
+name: to-pages-r
 on:
   push:
     branches: 
