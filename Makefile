@@ -1,4 +1,4 @@
-binname="wwwapp_template"
+binname="test-webapp"
 
 help:
 	@cat Makefile

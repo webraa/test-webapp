@@ -8,7 +8,7 @@
     <title>egui WWWapp Template</title>
 
     <!-- config for our rust wasm binary. go to https://trunkrs.dev/assets/#rust for more customization -->
-    <script type="module">import init from '/wwwapp_template.js';init('/wwwapp_template_bg.wasm');</script>
+    <script type="module">import init from '/test-webapp.js';init('/test-webapp_bg.wasm');</script>
     <!-- this is the base url relative to which other urls will be constructed. trunk will insert this from the public-url option -->
     <base href="/">
 
@@ -107,11 +107,11 @@
 
     </style>
 
-<link rel="preload" href="/wwwapp_template_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/wwwapp_template.js"></head>
+<link rel="preload" href="/test-webapp_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/test-webapp.js"></head>
 
 <body>
-    <p>Some TEXT v0.5.0</p>
+    <p>Loading egui test webapp</p>
     <!-- The WASM code will resize the canvas dynamically -->
     <!-- the id is hardcoded in main.rs . so, make sure both match. -->
     <canvas id="raa_canvas_id"></canvas>

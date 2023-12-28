@@ -1,9 +1,9 @@
-var cacheName = 'wwwapp-template-pwa';
+var cacheName = 'test-webapp-pwa';
 var filesToCache = [
   './',
   './index.html',
-  './wwwapp_template.js',
-  './wwwapp_template_bg.wasm',
+  './test_webapp.js',
+  './test_webapp_bg.wasm',
 ];
 
 /* Start the service worker and cache all of the app's content */
