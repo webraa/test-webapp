@@ -7,8 +7,8 @@
 - [x] **egui** & **eframe** have properly working **v0.21.0** *(v0.22.0 is not compiled correctly)*
 
 ## ./asset/
-- [ ] **sw.js** & **manifest.jsom** => consist cach name
-- [ ] **sw.js** => set actual names for **\<app>.js** and **\<app>_bg.wasm** to **Cargo.toml:name**
+- [x] **sw.js** & **manifest.jsom** => consist cach name
+- [x] **sw.js** => set actual names for **\<app>.js** and **\<app>_bg.wasm** to **Cargo.toml:name**
 
 
 
