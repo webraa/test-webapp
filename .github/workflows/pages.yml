@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  make-pages:
+  make-pages-m:
     runs-on: ubuntu-latest
     steps:
     - name: clone
