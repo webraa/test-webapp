@@ -8,9 +8,6 @@ edit:
 edit_main:
 	@nvim ./src/main.rs
 
-#gh.pages:
-#	@git subtree push --prefix dist origin gh-pages
-
 all: release trunk.release savetogit
 trunk.release:
 	@trunk build --release
