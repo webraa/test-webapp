@@ -1,5 +1,5 @@
 # in dev
-name: to-pages
+name: to-pages-d
 on:
   push:
     branches: 
