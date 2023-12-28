@@ -40,6 +40,9 @@ impl eframe::App for RootApp {
     /// Called each time the UI needs repainting, which may be many times per second.
     /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
+        egui::TopBottomPanel::bottom("bot_pan").show( ctx, |ui| {
+            ui.label("top panel");
+        });
         egui::CentralPanel::default().show( ctx, |ui| {
             ui.label("egui test crossApp v0.1.3");
             ui.horizontal( |ui| {
