@@ -5,7 +5,7 @@ help:
 
 edit:
 	@nvim ./src/root_app.rs
-edit_main:
+edit.main:
 	@nvim ./src/main.rs
 
 all: release trunk.release savetogit

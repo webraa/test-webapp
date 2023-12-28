@@ -14,7 +14,7 @@ fn main() -> Result<(), eframe::Error> {
     };
 
     eframe::run_native(
-        "egui CrossApp Template",
+        "egui test App",
         options,
         Box::new( |cc| Box::new(RootApp::new(cc)) )
    )
