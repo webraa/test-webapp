@@ -41,7 +41,7 @@ impl eframe::App for RootApp {
     /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         egui::CentralPanel::default().show( ctx, |ui| {
-            ui.label("egui test crossApp v0.1.1");
+            ui.label("egui test crossApp v0.1.2");
             ui.horizontal( |ui| {
                 let btn = ui.button( "try to save TEXT" );
                 ui.label( format!(" <{}>", self.pressed) );
