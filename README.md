@@ -1,5 +1,5 @@
-# egui webapp-template
-CrossWebPlatformAssembly
+# test-webapp
+**egui** features testing
 
 # ToDo
 ## Cargo.toml
