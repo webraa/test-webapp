@@ -1,5 +1,4 @@
-# in dev
-name: to-pages-d
+name: to-pages
 on:
   push:
     branches: 
@@ -10,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  make-pages-d:
+  make-pages:
     runs-on: ubuntu-latest
     steps:
     - name: clone
