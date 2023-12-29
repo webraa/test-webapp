@@ -78,7 +78,7 @@ impl eframe::App for RootApp {
 
 impl RootApp {
     fn showMainView( &mut self, _ctx: &egui::Context, ui: &mut egui::Ui ) {
-                ui.label("egui test crossApp v0.3.1");
+                ui.label("egui test crossApp v0.4.1");
                 ui.horizontal( |ui| {
                    let btn = ui.button( "try to save TEXT" );
                     ui.label( format!(" <{}>", self.pressed) );
