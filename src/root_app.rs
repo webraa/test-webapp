@@ -66,31 +66,19 @@ impl eframe::App for RootApp {
         });
         if self.is_wasm {
             egui::Window::new("mainWindow").show( ctx, |ui| {
-                if self.is_wasm == true {
-                    ui.label("WASM!!");
-                }else{
-                    ui.label("not wasm");
-                }
-                ui.label("egui test crossApp v0.2.0");
-                ui.horizontal( |ui| {
-                   let btn = ui.button( "try to save TEXT" );
-                    ui.label( format!(" <{}>", self.pressed) );
-                    if btn.clicked(){
-                        println!("clicked with PRESSURE!!!");
-                        self.pressed = true;
-                    }
-                });
-                ui.text_edit_singleline(&mut self.txt);
-                ui.label( format!("just edited: [{}]", self.txt) );
+                self.showMainView( ctx, ui);
             });
         }else{
             egui::CentralPanel::default().show( ctx, |ui| {
-                if self.is_wasm == true {
-                    ui.label("WASM!!");
-                }else{
-                    ui.label("not wasm");
-                }
-                ui.label("egui test crossApp v0.2.0");
+                self.showMainView( ctx, ui);
+            });
+        }
+    }
+}
+
+impl RootApp {
+    fn showMainView( &mut self, _ctx: &egui::Context, ui: &mut egui::Ui ) {
+                ui.label("egui test crossApp v0.3.1");
                 ui.horizontal( |ui| {
                    let btn = ui.button( "try to save TEXT" );
                     ui.label( format!(" <{}>", self.pressed) );
@@ -101,7 +89,5 @@ impl eframe::App for RootApp {
                 });
                 ui.text_edit_singleline(&mut self.txt);
                 ui.label( format!("just edited: [{}]", self.txt) );
-            });
-        }
     }
 }
