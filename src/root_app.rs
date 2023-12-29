@@ -5,13 +5,25 @@ pub struct RootApp {
     txt: String,
 
     #[serde(skip)]
+    is_wasm: bool,
     pressed: bool,
 }
 
 impl Default for RootApp {
     fn default() -> Self {
-        Self {txt:"<empty>".to_owned(), pressed:false}
+        Self {txt:"<empty>".to_owned(), is_wasm:is_wasm(), pressed:false}
     }
+}
+
+
+#[ cfg(not(target_arch = "wasm32")) ]
+fn is_wasm() -> bool  {
+    false
+}
+
+#[ cfg(target_arch = "wasm32") ]
+fn is_wasm() -> bool  {
+    true
 }
 
 impl RootApp {
@@ -21,7 +33,7 @@ impl RootApp {
 
         // Load previous app state (if any).
         // Note that you must enable the `persistence` feature for this to work.
-        if let Some(storage) = cc.storage {
+        if let Some(storage) = cc.storage{
             println!("tryin to load..");
             return eframe::get_value(storage, eframe::APP_KEY).unwrap_or_default();
         }
@@ -52,18 +64,44 @@ impl eframe::App for RootApp {
                 ui.label(".");
             });
         });
-        egui::CentralPanel::default().show( ctx, |ui| {
-            ui.label("egui test crossApp v0.2.0");
-            ui.horizontal( |ui| {
-                let btn = ui.button( "try to save TEXT" );
-                ui.label( format!(" <{}>", self.pressed) );
-                if btn.clicked(){
-                    println!("clicked with PRESSURE!!!");
-                    self.pressed = true;
-            }
+        if self.is_wasm {
+            egui::Window::new("mainWindow").show( ctx, |ui| {
+                if self.is_wasm == true {
+                    ui.label("WASM!!");
+                }else{
+                    ui.label("not wasm");
+                }
+                ui.label("egui test crossApp v0.2.0");
+                ui.horizontal( |ui| {
+                   let btn = ui.button( "try to save TEXT" );
+                    ui.label( format!(" <{}>", self.pressed) );
+                    if btn.clicked(){
+                        println!("clicked with PRESSURE!!!");
+                        self.pressed = true;
+                    }
+                });
+                ui.text_edit_singleline(&mut self.txt);
+                ui.label( format!("just edited: [{}]", self.txt) );
             });
-            ui.text_edit_singleline(&mut self.txt);
-            ui.label( format!("just edited: [{}]", self.txt) );
-        });
+        }else{
+            egui::CentralPanel::default().show( ctx, |ui| {
+                if self.is_wasm == true {
+                    ui.label("WASM!!");
+                }else{
+                    ui.label("not wasm");
+                }
+                ui.label("egui test crossApp v0.2.0");
+                ui.horizontal( |ui| {
+                   let btn = ui.button( "try to save TEXT" );
+                    ui.label( format!(" <{}>", self.pressed) );
+                    if btn.clicked(){
+                        println!("clicked with PRESSURE!!!");
+                        self.pressed = true;
+                    }
+                });
+                ui.text_edit_singleline(&mut self.txt);
+                ui.label( format!("just edited: [{}]", self.txt) );
+            });
+        }
     }
 }
