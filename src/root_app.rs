@@ -71,7 +71,7 @@ impl eframe::App for RootApp {
                 }else{
                     ui.label("not wasm");
                 }
-                ui.label("egui test crossApp v0.2.0");
+                ui.label("egui test crossApp v0.3.0");
                 ui.horizontal( |ui| {
                    let btn = ui.button( "try to save TEXT" );
                     ui.label( format!(" <{}>", self.pressed) );
