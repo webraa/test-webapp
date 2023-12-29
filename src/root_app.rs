@@ -66,10 +66,12 @@ impl eframe::App for RootApp {
         });
         if self.is_wasm {
             egui::Window::new("mainWindow").show( ctx, |ui| {
+                ui.label("WASM");
                 self.showMainView( ctx, ui);
             });
         }else{
-            egui::CentralPanel::default().show( ctx, |ui| {
+            egui::Window::new("mainWindow").show( ctx, |ui| {
+                ui.label("not wasm");
                 self.showMainView( ctx, ui);
             });
         }
@@ -78,7 +80,7 @@ impl eframe::App for RootApp {
 
 impl RootApp {
     fn showMainView( &mut self, _ctx: &egui::Context, ui: &mut egui::Ui ) {
-                ui.label("egui test crossApp v0.4.1");
+                ui.label("egui test crossApp v0.4.2");
                 ui.horizontal( |ui| {
                    let btn = ui.button( "try to save TEXT" );
                     ui.label( format!(" <{}>", self.pressed) );
