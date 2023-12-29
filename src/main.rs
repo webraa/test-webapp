@@ -9,7 +9,10 @@ fn main() -> Result<(), eframe::Error> {
     println!("MAIN has beed entered..");
 
     let options = eframe::NativeOptions {
-        initial_window_size: Some(egui::vec2(200., 300.)),
+        //initial_window_size: Some(egui::vec2(200., 300.)),
+        viewport: egui::ViewportBuilder::default()
+            .with_inner_size([400.,300.])
+            .with_min_inner_size([200.,300.]),
         ..Default::default()
     };
 
@@ -32,13 +35,14 @@ fn main() {
     let options = eframe::WebOptions::default();
 
     wasm_bindgen_futures::spawn_local(async {
-        eframe::start_web(
-            "raa_canvas_id",
-            options,
-            Box::new( |cc| Box::new(RootApp::new(cc)) ),
-        )
-        .await
-        .expect("failure with starting EFRAME");
+        eframe::WebRunner::new()
+            .start(
+                "raa_canvas_id",
+                options,
+                Box::new( |cc| Box::new(RootApp::new(cc)) ),
+            )
+            .await
+            .expect("failure with starting EFRAME");
     });
 }
 
