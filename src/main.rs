@@ -1,12 +1,17 @@
 #![allow(non_snake_case)]
 
+mod log_view;
 mod root_app;
-use crate::root_app::*;
+use root_app::RootApp;
 
+mod example_view;
+
+mod raadbg;
+use raadbg::log;
 
 #[ cfg(not(target_arch = "wasm32")) ]
 fn main() -> Result<(), eframe::Error> {
-    println!("MAIN has beed entered..");
+    log::simple("MAIN has beed entered..");
 
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
@@ -25,7 +30,7 @@ fn main() -> Result<(), eframe::Error> {
 
 #[ cfg(target_arch = "wasm32") ]
 fn main() {
-    println!("in WASM doen't work..");
+    log::simple("in WASM doen't work..");
 
     console_error_panic_hook::set_once();
 

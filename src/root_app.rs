@@ -1,17 +1,30 @@
+#![allow(non_snake_case)]
+
+use crate::log_view::LogView;
+use crate::raadbg::log;
+use crate::example_view::ExampleView;
 
 #[derive(serde::Deserialize, serde::Serialize)]
 #[serde(default)]
 pub struct RootApp {
-    txt: String,
+    pub example_text: String,
 
     #[serde(skip)]
+    log_view: LogView,
+    #[serde(skip)]
+    example_view: ExampleView,
+    #[serde(skip)]
     is_wasm: bool,
-    pressed: bool,
 }
 
 impl Default for RootApp {
     fn default() -> Self {
-        Self {txt:"<empty>".to_owned(), is_wasm:is_wasm(), pressed:false}
+        Self {
+            example_text:"<empty>".to_owned(), 
+            log_view: LogView::new(),
+            example_view: ExampleView::new(),
+            is_wasm:is_wasm(), 
+        }
     }
 }
 
@@ -20,7 +33,6 @@ impl Default for RootApp {
 fn is_wasm() -> bool  {
     false
 }
-
 #[ cfg(target_arch = "wasm32") ]
 fn is_wasm() -> bool  {
     true
@@ -28,13 +40,8 @@ fn is_wasm() -> bool  {
 
 impl RootApp {
     pub fn new(cc: &eframe::CreationContext<'_>) -> Self {
-        // This is also where you can customize the look and feel of egui using
-        // `cc.egui_ctx.set_visuals` and `cc.egui_ctx.set_fonts`.
-
-        // Load previous app state (if any).
-        // Note that you must enable the `persistence` feature for this to work.
         if let Some(storage) = cc.storage{
-            println!("tryin to load..");
+            log::simple("trying to load..");
             return eframe::get_value(storage, eframe::APP_KEY).unwrap_or_default();
         }
         Default::default()
@@ -44,15 +51,30 @@ impl RootApp {
 
 impl eframe::App for RootApp {
     fn save(&mut self, storage: &mut dyn eframe::Storage) {
-        println!("saving..");
+        log::simple("saving..");
         eframe::set_value(storage, eframe::APP_KEY, self);
-        println!("..saved");
+        log::simple("..saved");
     }
 
-    /// Called each time the UI needs repainting, which may be many times per second.
-    /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
+        
         egui::TopBottomPanel::bottom("bot_pan").show( ctx, |ui| {
+            self.showBanner( ui );
+        });
+        
+        egui::Window::new("logs").show( ctx, |ui| {
+            self.log_view.updateUI( ui );
+        });
+
+        egui::Window::new("exampleView").show( ctx, |ui| {
+            self.example_view.updateUI( ui, &mut self.example_text );
+        });
+
+    }
+}
+
+impl RootApp {
+    fn showBanner( &mut self, ui: &mut egui::Ui ){
             ui.horizontal(|ui| {
                 ui.spacing_mut().item_spacing.x = 0.0;
                 ui.label("Powered by ");
@@ -63,33 +85,5 @@ impl eframe::App for RootApp {
                 );
                 ui.label(".");
             });
-        });
-        if self.is_wasm {
-            egui::Window::new("mainWindow").show( ctx, |ui| {
-                ui.label("WASM");
-                self.showMainView( ctx, ui);
-            });
-        }else{
-            egui::Window::new("mainWindow").show( ctx, |ui| {
-                ui.label("not wasm");
-                self.showMainView( ctx, ui);
-            });
-        }
-    }
-}
-
-impl RootApp {
-    fn showMainView( &mut self, _ctx: &egui::Context, ui: &mut egui::Ui ) {
-                ui.label("egui test crossApp v0.4.2");
-                ui.horizontal( |ui| {
-                   let btn = ui.button( "try to save TEXT" );
-                    ui.label( format!(" <{}>", self.pressed) );
-                    if btn.clicked(){
-                        println!("clicked with PRESSURE!!!");
-                        self.pressed = true;
-                    }
-                });
-                ui.text_edit_singleline(&mut self.txt);
-                ui.label( format!("just edited: [{}]", self.txt) );
     }
 }

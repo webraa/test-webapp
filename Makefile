@@ -4,6 +4,8 @@ help:
 	@cat Makefile
 
 edit:
+	@nvim ./src/example_view.rs
+edit.app:
 	@nvim ./src/root_app.rs
 edit.main:
 	@nvim ./src/main.rs
