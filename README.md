@@ -4,7 +4,7 @@
 # ToDo
 ## Cargo.toml
 - [x] set "name"
-- [x] **egui** & **eframe** have properly working **v0.21.0** *(v0.22.0 is not compiled correctly)*
+- [x] **egui** & **eframe** seems to properly work at least on **v0.24.0** 
 
 ## ./asset/
 - [x] **sw.js** & **manifest.jsom** => consist cach name
