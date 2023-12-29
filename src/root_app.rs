@@ -41,14 +41,16 @@ impl eframe::App for RootApp {
     /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         egui::TopBottomPanel::bottom("bot_pan").show( ctx, |ui| {
-            ui.spacing_mut().item_spacing.x = 0.0;
-            ui.label("Powered by ");
-            ui.hyperlink_to("egui", "https://github.com/emilk/egui");
-            ui.label(" and ");
-            ui.hyperlink_to("eframe",
-                "https://github.com/emilk/egui/tree/master/crates/eframe",
-            );
-            ui.label(".");
+            ui.horizontal(|ui| {
+                ui.spacing_mut().item_spacing.x = 0.0;
+                ui.label("Powered by ");
+                ui.hyperlink_to("egui", "https://github.com/emilk/egui");
+                ui.label(" and ");
+                ui.hyperlink_to("eframe",
+                    "https://github.com/emilk/egui/tree/master/crates/eframe",
+                );
+                ui.label(".");
+            });
         });
         egui::CentralPanel::default().show( ctx, |ui| {
             ui.label("egui test crossApp v0.1.3");
