@@ -53,7 +53,7 @@ impl eframe::App for RootApp {
             });
         });
         egui::CentralPanel::default().show( ctx, |ui| {
-            ui.label("egui test crossApp v0.1.3");
+            ui.label("egui test crossApp v0.2.0");
             ui.horizontal( |ui| {
                 let btn = ui.button( "try to save TEXT" );
                 ui.label( format!(" <{}>", self.pressed) );
