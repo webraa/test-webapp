@@ -11,7 +11,7 @@ use raadbg::log;
 
 #[ cfg(not(target_arch = "wasm32")) ]
 fn main() -> Result<(), eframe::Error> {
-    log::simple("BIN MAIN has beed entered..");
+    log::simple("[BINARY]: MAIN has beed entered..");
 
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
@@ -21,7 +21,7 @@ fn main() -> Result<(), eframe::Error> {
     };
 
     eframe::run_native(
-        "egui test App",
+        "egui App Template",
         options,
         Box::new( |cc| Box::new(RootApp::new(cc)) )
    )
@@ -30,7 +30,7 @@ fn main() -> Result<(), eframe::Error> {
 
 #[ cfg(target_arch = "wasm32") ]
 fn main() {
-    log::simple("WASM MAIN has beed entered..");
+    log::simple("[WASM]: MAIN has beed entered..");
 
     console_error_panic_hook::set_once();
 
