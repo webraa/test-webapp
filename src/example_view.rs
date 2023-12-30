@@ -1,4 +1,4 @@
-const VERS: &str = "v0.5.2";
+const VERS: &str = "v0.5.4";
 
 use crate::raadbg::log;
 
@@ -30,6 +30,7 @@ impl ExampleView {
             }
         });
         ui.text_edit_singleline(example_text);
+        ui.separator();
         ui.label( format!("just edited: [{}]", example_text) );
     }
 }

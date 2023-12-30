@@ -62,14 +62,13 @@ impl eframe::App for RootApp {
             self.showBanner( ui );
         });
         
-        egui::Window::new("logs").show( ctx, |ui| {
-            self.log_view.updateUI( ui );
-        });
-
         egui::Window::new("exampleView").show( ctx, |ui| {
             self.example_view.updateUI( ui, &mut self.example_text );
         });
 
+        egui::Window::new("logs").show( ctx, |ui| {
+            self.log_view.updateUI( ui );
+        });
     }
 }
 
