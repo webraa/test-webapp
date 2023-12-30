@@ -1,14 +1,14 @@
-# egui webapp-template
-CrossWebPlatformAssembly
+# test-webapp
+**egui** features testing
 
 # ToDo
 ## Cargo.toml
-1. set "name"
-2. **egui** & **eframe** have properly working **v0.21.0** *(v0.22.0 is not compiled correctly)*
+- [x] set "name"
+- [x] **egui** & **eframe** seems to properly work at least on **v0.24.0** 
 
 ## ./asset/
-1. **sw.js** & **manifest.jsom** => consist cach name
-2. **sw.js** => set actual names for **\<app>.js** and **\<app>_bg.wasm** to **Cargo.toml:name**
+- [x] **sw.js** & **manifest.jsom** => consist cach name
+- [x] **sw.js** => set actual names for **\<app>.js** and **\<app>_bg.wasm** to **Cargo.toml:name**
 
 
 

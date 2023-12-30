@@ -1,11 +1,13 @@
-binname="wwwapp_template"
+binname="test-webapp"
 
 help:
 	@cat Makefile
 
 edit:
+	@nvim ./src/example_view.rs
+edit.app:
 	@nvim ./src/root_app.rs
-edit_main:
+edit.main:
 	@nvim ./src/main.rs
 
 all: release trunk.release savetogit
@@ -26,6 +28,13 @@ size:
 path:
 	export LD_LIBRARY_PATH='/home/configurator/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib'
 
+
+to.release:
+	@git checkout release
+to.dev:
+	@git checkout dev
+merge.dev:
+	@git merge dev
 
 pull:
 	@git pull
