@@ -1,4 +1,4 @@
-const VERS: &str = "v0.5.1";
+const VERS: &str = "v0.5.2";
 
 use crate::raadbg::log;
 
@@ -20,7 +20,7 @@ impl ExampleView {
         }
     }
     pub fn updateUI(&mut self, ui: &mut egui::Ui, example_text: &mut String) {
-        ui.label( format!("test webapp {}", VERS) );
+        ui.label( format!("webapp template {}", VERS) );
         ui.horizontal( |ui| {
             let btn = ui.button( "try to ??? TEXT" );
             ui.label( format!(" <{}>", self.pressed) );

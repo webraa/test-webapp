@@ -1,14 +1,12 @@
-# test-webapp
-**egui** features testing
+# webapp_template
+**egui v0.24.0** features testing
 
-# ToDo
-## Cargo.toml
-- [x] set "name"
-- [x] **egui** & **eframe** seems to properly work at least on **v0.24.0** 
-
-## ./asset/
-- [x] **sw.js** & **manifest.jsom** => consist cach name
-- [x] **sw.js** => set actual names for **\<app>.js** and **\<app>_bg.wasm** to **Cargo.toml:name**
+## after used as template
+### Cargo.toml
+- [ ] change \<name> from `webapp_template` to \<appName>
+### ./asset/
+- [ ] **sw.js** & **manifest.jsom** => consist cach \<name>
+- [ ] **sw.js** => set actual names for **\<app>.js** and **\<app>_bg.wasm** to **Cargo.toml:name**
 
 
 
