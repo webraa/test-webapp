@@ -58,7 +58,7 @@ impl eframe::App for RootApp {
 
     fn update( &mut self, ctx: &egui::Context, _frame: &mut eframe::Frame ) {
         
-        egui::TopBottomPanel::bottom("bot_pan").show( ctx, |ui| {
+        egui::TopBottomPanel::bottom("bot_pan_banner").show( ctx, |ui| {
             self.showBanner( ui );
         });
         
